@@ -31,7 +31,7 @@ $ cd site && bundle init
 
 ## In the Gemfile file add the following:
 
-source 'https://rubygems.org'
+source 'https://rubygems.org'   
 gem 'rack'
 
 
@@ -43,6 +43,7 @@ $ bundle install
 
 ## editing the config.ru file so it contains the following:
 
+```
 use Rack::Static,
   :urls => ["/images", "/js", "/css"],
   :root => "public"
@@ -57,18 +58,25 @@ run lambda { |env|
     File.open('public/index.html', File::RDONLY)
   ]
 }
+```
 
 ## start app locally 
 
+```
 $ rackup
-
+```
 ## heroku 
 
-$ git init
-$ heroku create
-$ git add .
-$ git commit -m "Initial static site template app"
-Use git to deploy to Heroku as well.
+```
+$ git init 
+$ heroku create 
+$ git add . 
+$ git commit -m "Initial static site template app" 
+```
+## Use git to deploy to Heroku as well.
+
+```
 $ git push heroku master
 $ heroku app:{given name} {old name}
 $ heroku open
+```
